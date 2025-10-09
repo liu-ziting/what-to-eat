@@ -18,7 +18,7 @@
                                         <span class="text-white text-2xl font-bold">L</span>
                                     </div>
                                     <div>
-                                        <h3 class="text-xl font-bold text-dark-800">liuziting</h3>
+                                        <h3 class="text-xl font-bold text-dark-800">ArongJun</h3>
                                         <p class="text-gray-600 text-sm">AI降临派</p>
                                     </div>
                                 </div>
@@ -35,9 +35,9 @@
                                             </svg>
                                         </div>
                                         <div>
-                                            <span class="text-sm font-medium text-gray-700">开源地址</span>
-                                            <a href="https://github.com/liu-ziting/what-to-eat" target="_blank" class="block text-blue-600 hover:text-blue-700 underline text-sm">
-                                                github.com/liu-ziting/what-to-eat
+                                            <span class="text-sm font-medium text-gray-700">博客地址</span>
+                                            <a href="https://www.wuenrong.cn" target="_blank" class="block text-blue-600 hover:text-blue-700 underline text-sm">
+                                                https://www.wuenrong.cn
                                             </a>
                                         </div>
                                     </div>
@@ -46,8 +46,8 @@
                                             <span class="text-white text-sm font-bold">K</span>
                                         </div>
                                         <div>
-                                            <span class="text-sm font-medium text-gray-700">开发工具</span>
-                                            <p class="text-gray-600 text-sm">Kiro 编辑器 - AI驱动的全流程开发</p>
+                                            <span class="text-sm font-medium text-gray-700">阿荣邮箱</span>
+                                            <p class="text-gray-600 text-sm">admin@wuenrong.cn</p>
                                         </div>
                                     </div>
                                 </div>
