@@ -400,7 +400,7 @@ const chineseCuisines = ref([
         flavor: '醇厚、鲜美、微甜'
     }
 ])
-<!--
+/*
 // 友情链接数据
 const friendLinks = ref([
     {
@@ -421,8 +421,8 @@ const friendLinks = ref([
         url: 'https://bot.lz-t.top/',
         description: '独特的复古像素风格AI聊天应用，支持多种先进AI模型。提供沉浸式的复古游戏界面体验，让AI对话充满怀旧魅力。'
     }
-])-->
-
+])
+*/
 // 国际菜系数据
 const internationalCuisines = ref([
     {
