@@ -16,9 +16,9 @@ import type {
 
 // AI服务配置 - 从环境变量读取（菜谱生成模型配置）
 const AI_CONFIG = {
-    baseURL: import.meta.env.VITE_TEXT_GENERATION_BASE_URL || 'https://api.lingyiwanwu.com/v1/',
+    baseURL: import.meta.env.VITE_TEXT_GENERATION_BASE_URL || 'https://ark.cn-beijing.volces.com/api/v3',
     apiKey: import.meta.env.VITE_TEXT_GENERATION_API_KEY,
-    model: import.meta.env.VITE_TEXT_GENERATION_MODEL || 'yi-lightning',
+    model: import.meta.env.VITE_TEXT_GENERATION_MODEL || 'doubao-seed-1-6-flash-250828',
     temperature: Number(import.meta.env.VITE_TEXT_GENERATION_TEMPERATURE) || 0.7,
     timeout: Number(import.meta.env.VITE_TEXT_GENERATION_TIMEOUT) || 300000
 }
