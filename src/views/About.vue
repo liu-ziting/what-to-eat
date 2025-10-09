@@ -244,14 +244,6 @@ import { ref } from 'vue'
 import GlobalNavigation from '@/components/GlobalNavigation.vue'
 import GlobalFooter from '@/components/GlobalFooter.vue'
 
-// 滚动到支持区域
-const scrollToSupport = () => {
-    const supportSection = document.querySelector('.support-section')
-    if (supportSection) {
-        supportSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
-    }
-}
-
 // 中华八大菜系数据
 const chineseCuisines = ref([
     {
