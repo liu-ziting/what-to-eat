@@ -233,6 +233,88 @@
                 </div>
             </div>
 
+            <!-- 友情链接 
+            <div class="relative">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-t-lg border-2 border-[#0A0910] border-b-0 inline-block mb-0">
+                    <span class="font-bold text-lg">🔗 其他项目</span>
+                </div>
+                <div class="bg-white border-2 border-[#0A0910] rounded-lg rounded-tl-none p-6">
+                    <div class="mt-4">
+                        <div class="flex items-center gap-2 mb-6">
+                            <span class="text-2xl">🤖</span>
+                            <div>
+                                <p class="text-gray-700 text-sm font-medium">AI 驱动的创新工具集</p>
+                                <p class="text-gray-500 text-xs">以下项目均由Kiro开发完成</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <a
+                                v-for="link in friendLinks"
+                                :key="link.id"
+                                :href="link.url"
+                                target="_blank"
+                                class="group bg-gradient-to-br from-gray-50 to-blue-50 border-2 border-gray-200 rounded-lg p-5 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:border-blue-300"
+                            >
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center border-2 border-[#0A0910] group-hover:from-purple-400 group-hover:to-pink-500 transition-all duration-300 flex-shrink-0"
+                                    >
+                                        <span class="text-white text-lg font-bold">{{ link.name.charAt(0) }}</span>
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <h4 class="font-bold text-dark-800 text-base group-hover:text-blue-600 transition-colors mb-2">{{ link.name }}</h4>
+                                        <p class="text-sm text-gray-600 leading-relaxed line-clamp-3">{{ link.description }}</p>
+                                        <div class="flex items-center gap-2 mt-3">
+                                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                            <span class="text-xs text-green-600 font-medium">在线访问</span>
+                                            <svg class="w-4 h-4 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="2"
+                                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                                ></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mt-6 space-y-4">
+                            <div class="p-4 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-lg">
+                                <div class="flex items-center gap-3">
+                                    <div class="text-2xl">✨</div>
+                                    <div>
+                                        <p class="text-sm font-medium text-purple-800">持续更新中</p>
+                                        <p class="text-xs text-purple-600">更多AI工具正在开发，敬请期待！</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-200 rounded-lg">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="text-2xl">☕</div>
+                                        <div>
+                                            <p class="text-sm font-medium text-orange-800">喜欢这些项目？</p>
+                                            <p class="text-xs text-orange-600">您的支持是最大的动力</p>
+                                        </div>
+                                    </div>
+                                    <a
+                                        href="#"
+                                        @click.prevent="scrollToSupport"
+                                        class="bg-orange-500 hover:bg-orange-600 text-white text-xs px-3 py-1 rounded-full transition-colors"
+                                    >
+                                        支持开发者
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
         <!-- 底部 -->
         <GlobalFooter />
     </div>
@@ -318,7 +400,7 @@ const chineseCuisines = ref([
         flavor: '醇厚、鲜美、微甜'
     }
 ])
-
+<!--
 // 友情链接数据
 const friendLinks = ref([
     {
@@ -339,7 +421,7 @@ const friendLinks = ref([
         url: 'https://bot.lz-t.top/',
         description: '独特的复古像素风格AI聊天应用，支持多种先进AI模型。提供沉浸式的复古游戏界面体验，让AI对话充满怀旧魅力。'
     }
-])
+])-->
 
 // 国际菜系数据
 const internationalCuisines = ref([
