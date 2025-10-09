@@ -5,12 +5,12 @@
             <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
                 <p class="text-sm text-gray-600">
                     © 2025 一饭封神 |
-                    <a href="https://github.com/liu-ziting/what-to-eat" target="_blank" class="text-blue-600 hover:text-blue-700 hover:underline transition-colors">
-                        Powered by Liuziting
+                    <a href="https://www.wuenrong.cn" target="_blank" class="text-blue-600 hover:text-blue-700 hover:underline transition-colors">
+                        Powered by Arong
                     </a>
                 </p>
                 <div class="hidden md:block w-px h-4 bg-gray-300"></div>
-                <p class="text-xs text-gray-500">🚀 Vibe Coding with Kiro AI</p>
+                <p class="text-xs text-gray-500">🚀 Arong's Blog</p>
             </div>
         </div>
     </footer>
