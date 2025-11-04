@@ -25,7 +25,7 @@
 
 ## 🛠️ 技术栈
 
--   **前端框架：** Vue 3.4 + Composition API + TypeScript 5.3+
+-   **前端框架：** Vue 3.4 + TypeScript 5.3+
 -   **样式方案：** Tailwind CSS 3.4+
 -   **构建工具：** Vite 5.0+
 -   **AI 服务：** 302.AI
@@ -158,8 +158,6 @@ VITE_IMAGE_GENERATION_MODEL=cogview-3-flash
 -   **温度参数** - 控制生成内容的创造性(0-1)
 -   **超时设置** - 自定义 API 请求超时时间
 
-> 💡 **提示**: 访问 `/settings-demo` 查看完整的配置系统演示
-
 ## 📁 项目结构
 
 ```
@@ -171,9 +169,9 @@ src/
 │   ├── GlobalNavigation.vue  # 全局导航
 │   ├── RecipeCard.vue        # 菜谱卡片
 │   ├── NutritionAnalysis.vue # 营养分析
-│   ├── SettingsModal.vue     # 设置弹窗 🆕
-│   ├── SettingsButton.vue    # 设置按钮 🆕
-│   ├── ConfigTest.vue        # 配置测试 🆕
+│   ├── SettingsModal.vue     # 设置弹窗
+│   ├── SettingsButton.vue    # 设置按钮
+│   ├── ConfigTest.vue        # 配置测试
 │   └── ...
 ├── config/              # 配置文件
 │   ├── ai.ts                 # AI 模型配置
@@ -185,34 +183,20 @@ src/
 │   ├── favoriteService.ts    # 收藏服务
 │   ├── imageService.ts       # 图片服务
 │   └── ...
-├── stores/              # 状态管理 🆕
-│   └── settings.js           # 配置状态管理 🆕
+├── stores/              # 状态管理
+│   └── settings.js           # 配置状态管理
 ├── utils/               # 工具函数
-│   ├── apiConfig.js          # API配置工具 🆕
+│   ├── apiConfig.js          # API配置工具
 │   └── ...
 ├── views/               # 页面组件
 │   ├── Home.vue              # 首页
 │   ├── Favorites.vue         # 收藏页
 │   ├── SauceDesign.vue       # 酱汁设计
-│   ├── SettingsDemo.vue      # 配置演示页 🆕
+│   ├── SettingsDemo.vue      # 配置演示页
 │   └── ...
 ├── types/               # TypeScript 类型定义
 └── router/              # 路由配置
 ```
-
-## 🎯 开发指南
-
-### 添加新菜系
-
-1. 在 `src/config/cuisines.ts` 中添加菜系配置
-2. 为菜系大师编写专业的 AI Prompt
-3. 添加对应的图标和描述
-
-### 扩展功能模块
-
-1. 在 `src/views/` 中创建新页面组件
-2. 在 `src/router/` 中添加路由配置
-3. 在导航组件中添加入口
 
 ### AI 服务集成
 
@@ -220,34 +204,6 @@ src/
 -   **图片生成**：`src/services/imageService.ts` - 多服务商支持
 -   **配置管理**：`src/stores/settings.js` - 实时配置管理
 -   **API 工具**：`src/utils/apiConfig.js` - 统一配置接口
-
-### 配置系统开发
-
-#### 添加新的配置项
-
-```javascript
-// 在 settings.js 中扩展配置结构
-const defaultSettings = {
-    textGeneration: {
-        // 现有配置...
-        newParam: 'default_value' // 新增配置
-    }
-}
-```
-
-#### 使用动态配置
-
-```javascript
-import { useSettingsStore } from '@/stores/settings'
-import { createTextGenerationRequest } from '@/utils/apiConfig'
-
-// 获取当前配置
-const settingsStore = useSettingsStore()
-const config = settingsStore.getTextGenerationConfig()
-
-// 创建API请求
-const requestConfig = createTextGenerationRequest(messages)
-```
 
 ## 📈 Star History
 
