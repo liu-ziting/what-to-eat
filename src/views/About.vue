@@ -124,7 +124,7 @@
                                     </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-dark-800">liuziting</h3>
-                                        <p class="text-gray-600 text-sm">AI降临派</p>
+                                        <p class="text-gray-600 text-sm">微信号：lztziting0629</p>
                                     </div>
                                 </div>
                                 <p class="text-gray-700 mb-4 text-sm leading-relaxed">
