@@ -32,17 +32,22 @@
                     <!-- 移动端和PC端的统一滚动容器 -->
                     <div class="h-full overflow-y-auto md:flex md:w-full md:h-full">
                         <!-- 左侧：推荐广告区域 -->
-                        <div class="md:w-1/3 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-4 md:p-6 border-b md:border-b-0 md:border-r border-purple-300 md:flex-shrink-0 md:h-full relative overflow-hidden">
+                        <div
+                            v-if="false"
+                            class="md:w-1/3 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-4 md:p-6 border-b md:border-b-0 md:border-r border-purple-300 md:flex-shrink-0 md:h-full relative overflow-hidden"
+                        >
                             <!-- 背景装饰 -->
                             <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
                             <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full"></div>
                             <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full"></div>
-                            
+
                             <div class="relative z-10 md:h-full md:flex md:flex-col md:justify-center">
                                 <div class="text-center text-white">
                                     <!-- Logo区域 -->
                                     <div class="mb-4 md:mb-6">
-                                        <div class="w-16 h-16 md:w-24 md:h-24 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-xl">
+                                        <div
+                                            class="w-16 h-16 md:w-24 md:h-24 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-xl"
+                                        >
                                             <img src="/logo.svg" alt="302.AI Logo" class="w-12 h-12 md:w-16 md:h-16" />
                                         </div>
                                         <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/30">
@@ -53,17 +58,16 @@
 
                                     <!-- 主标题 -->
                                     <h3 class="text-lg md:text-2xl font-bold mb-2 md:mb-3">
-                                        <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-                                            🚀 推荐API服务商
-                                        </span>
+                                        <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent"> 🚀 推荐API服务商 </span>
                                     </h3>
 
                                     <!-- 描述文字 -->
                                     <div class="mb-4 md:mb-6">
-                                        <p class="text-sm md:text-base text-white/90 mb-3 leading-relaxed ">
-                                            <strong class="text-yellow-300">302.AI</strong> 是一个按用量付费的企业级AI资源平台，提供市场上最新、最全面的AI模型和API，以及多种开箱即用的在线AI应用
+                                        <p class="text-sm md:text-base text-white/90 mb-3 leading-relaxed">
+                                            <strong class="text-yellow-300">302.AI</strong>
+                                            是一个按用量付费的企业级AI资源平台，提供市场上最新、最全面的AI模型和API，以及多种开箱即用的在线AI应用
                                         </p>
-                                        
+
                                         <!-- 特色标签 -->
                                         <div class="flex flex-wrap gap-2 justify-center mb-4">
                                             <span class="bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
@@ -144,7 +148,7 @@
                                     </svg>
                                 </button>
                             </div>
-                            
+
                             <!-- 配置内容区域 - 可滚动 -->
                             <div class="w-full space-y-6 md:flex-1 md:overflow-y-auto md:px-6 md:py-4 md:pr-8">
                                 <!-- 菜谱生成模型配置 -->
@@ -274,10 +278,12 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- PC端：右侧区域底部按钮 -->
                             <div class="hidden md:flex justify-end gap-3 px-6 py-4 border-t border-gray-200 bg-gray-50 flex-shrink-0">
-                                <button @click="resetToDefault" class="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-100 transition-colors text-sm">恢复默认</button>
+                                <button @click="resetToDefault" class="px-4 py-2 text-gray-600 border border-gray-300 rounded hover:bg-gray-100 transition-colors text-sm">
+                                    恢复默认
+                                </button>
                                 <button @click="saveSettings" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors text-sm">保存设置</button>
                             </div>
                         </div>

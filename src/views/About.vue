@@ -5,7 +5,7 @@
 
         <div class="max-w-7xl mx-auto space-y-6">
             <!-- API服务商推荐 -->
-            <div class="relative">
+            <div class="relative" v-show="false">
                 <div class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-t-lg border-2 border-[#0A0910] border-b-0 inline-block mb-0">
                     <span class="font-bold text-lg">🚀 API服务商</span>
                 </div>

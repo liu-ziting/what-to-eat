@@ -28,25 +28,8 @@
 -   **前端框架：** Vue 3.4 + TypeScript 5.3+
 -   **样式方案：** Tailwind CSS 3.4+
 -   **构建工具：** Vite 5.0+
--   **AI 服务：** 302.AI
+-   **AI 服务：** OpenAI 标准
 -   **部署平台：** Vercel + Netlify
-
-## ⚡ AI 服务推荐
-
-> 🤖 **本项目 AI 服务提供商**
-
-### 🚀 [302.AI](https://share.302.ai/DymMSI) - 官方合作伙伴
-
-**302.AI** 是一个按用量付费的企业级 AI 资源平台，提供市场上最新、最全面的 AI 模型和 API，以及多种开箱即用的在线 AI 应用。
-
-**为什么选择 302.AI？**
-
--   🤖 **多模型支持** - 支持最新的 AI 大模型
--   💰 **价格优惠** - 按用量付费，成本可控
--   ⚡ **响应快速** - 高性能 API 服务
--   🛡️ **服务稳定** - 企业级可靠性保障
-
-[![访问 302.AI](https://img.shields.io/badge/🚀_访问_302.AI-官方合作伙伴-blue?style=for-the-badge)](https://share.302.ai/DymMSI)
 
 ## 🚀 快速开始
 
@@ -107,9 +90,9 @@ npm run preview
 
 ```env
 # 菜谱生成模型配置（文本生成）
-VITE_TEXT_GENERATION_BASE_URL=https://api.302ai.cn/v1/
+VITE_TEXT_GENERATION_BASE_URL=https://********/v1/
 VITE_TEXT_GENERATION_API_KEY=************
-VITE_TEXT_GENERATION_MODEL=doubao-1.5-pro-32k
+VITE_TEXT_GENERATION_MODEL=******
 VITE_TEXT_GENERATION_TEMPERATURE=0.7
 VITE_TEXT_GENERATION_TIMEOUT=300000
 
@@ -211,7 +194,6 @@ src/
 
 ## 🙏 致谢
 
--   [302.AI](https://share.302.ai/DymMSI) -菜谱生成 API
 -   [智谱 AI](https://open.bigmodel.cn/) - 图片生成 API
 -   [Vue.js](https://vuejs.org/) - 渐进式 JavaScript 框架
 -   [Tailwind CSS](https://tailwindcss.com/) - 实用优先的 CSS 框架
