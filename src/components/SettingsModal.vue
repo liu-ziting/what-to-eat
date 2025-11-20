@@ -33,6 +33,7 @@
                     <div class="h-full overflow-y-auto md:flex md:w-full md:h-full">
                         <!-- 左侧：推荐广告区域 -->
                         <div
+                            v-if="false"
                             class="md:w-1/3 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-4 md:p-6 border-b md:border-b-0 md:border-r border-purple-300 md:flex-shrink-0 md:h-full relative overflow-hidden"
                         >
                             <!-- 背景装饰 -->
