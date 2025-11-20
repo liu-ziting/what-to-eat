@@ -31,23 +31,6 @@
 -   **AI 服务：** OpenAI 标准
 -   **部署平台：** Vercel + Netlify
 
-## ⚡ AI 服务推荐
-
-> 🤖 **本项目 AI 服务提供商**
-
-### 🚀 [一叶知秋](https://88996.cloud/register?aff=Vswe) - 官方合作伙伴
-
-**一叶知秋** 是一个致力于提供可持续且高质量的服务，运用先进的技术架构保障 API 服务的稳定性与高可用性。。
-
-**为什么选择 302.AI？**
-
--   🤖 **多模型支持** - 支持最新的 AI 大模型
--   💰 **价格优惠** - 按用量付费，成本可控
--   ⚡ **响应快速** - 高性能 API 服务
--   🛡️ **服务稳定** - 企业级可靠性保障
-
-[![访问 API服务商](https://img.shields.io/badge/🚀_访问AI服务商-blue?style=for-the-badge)](https://88996.cloud/register?aff=Vswe)
-
 ## 🚀 快速开始
 
 ### 环境要求
