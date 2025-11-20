@@ -33,7 +33,6 @@
                     <div class="h-full overflow-y-auto md:flex md:w-full md:h-full">
                         <!-- 左侧：推荐广告区域 -->
                         <div
-                            v-if="false"
                             class="md:w-1/3 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-4 md:p-6 border-b md:border-b-0 md:border-r border-purple-300 md:flex-shrink-0 md:h-full relative overflow-hidden"
                         >
                             <!-- 背景装饰 -->
@@ -48,11 +47,13 @@
                                         <div
                                             class="w-16 h-16 md:w-24 md:h-24 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-xl"
                                         >
-                                            <img src="/logo.svg" alt="302.AI Logo" class="w-12 h-12 md:w-16 md:h-16" />
+                                            <span class="text-2xl md:text-4xl font-bold bg-gradient-to-br from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent"
+                                                >AI</span
+                                            >
                                         </div>
                                         <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/30">
                                             <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                            <span class="text-xs font-medium">企业级AI资源平台</span>
+                                            <span class="text-xs font-medium">一叶知秋API</span>
                                         </div>
                                     </div>
 
@@ -64,8 +65,8 @@
                                     <!-- 描述文字 -->
                                     <div class="mb-4 md:mb-6">
                                         <p class="text-sm md:text-base text-white/90 mb-3 leading-relaxed">
-                                            <strong class="text-yellow-300">302.AI</strong>
-                                            是一个按用量付费的企业级AI资源平台，提供市场上最新、最全面的AI模型和API，以及多种开箱即用的在线AI应用
+                                            <!-- <strong class="text-yellow-300">一叶知秋：</strong> -->
+                                            致力于提供可持续且高质量的服务，运用先进的技术架构保障API服务的稳定性与高可用性。
                                         </p>
 
                                         <!-- 特色标签 -->
@@ -77,7 +78,7 @@
                                                 💰 按量付费
                                             </span>
                                             <span class="bg-gradient-to-r from-purple-400 to-pink-500 text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
-                                                🛡️ 企业级
+                                                🛡️ 透明计费
                                             </span>
                                         </div>
                                     </div>
@@ -116,7 +117,7 @@
 
                                     <!-- CTA按钮 -->
                                     <a
-                                        href="https://share.302.AI/DymMSI"
+                                        href="https://88996.cloud/register?aff=Vswe"
                                         target="_blank"
                                         class="group inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-gray-900 px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                                     >
