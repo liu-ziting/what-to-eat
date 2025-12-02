@@ -31,109 +31,59 @@
                 <div class="h-full md:flex md:w-full md:overflow-hidden">
                     <!-- 移动端和PC端的统一滚动容器 -->
                     <div class="h-full overflow-y-auto md:flex md:w-full md:h-full">
-                        <!-- 左侧：推荐广告区域 -->
+                        <!-- 左侧：打赏作者区域 -->
                         <div
-                            v-if="false"
-                            class="md:w-1/3 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-4 md:p-6 border-b md:border-b-0 md:border-r border-purple-300 md:flex-shrink-0 md:h-full relative overflow-hidden"
+                            class="md:w-1/3 bg-gradient-to-br from-yellow-300 via-orange-400 to-pink-500 p-4 md:p-6 border-b md:border-b-0 md:border-r border-orange-300 md:flex-shrink-0 md:h-full relative overflow-hidden"
                         >
                             <!-- 背景装饰 -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-                            <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full"></div>
-                            <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full"></div>
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-2xl -mr-16 -mt-16"></div>
+                            <div class="absolute bottom-0 left-0 w-24 h-24 bg-yellow-200/30 rounded-full blur-xl -ml-12 -mb-12"></div>
+                            <div class="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
 
-                            <div class="relative z-10 md:h-full md:flex md:flex-col md:justify-center">
-                                <div class="text-center text-white">
-                                    <!-- Logo区域 -->
-                                    <div class="mb-4 md:mb-6">
-                                        <div
-                                            class="w-16 h-16 md:w-24 md:h-24 mx-auto mb-3 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/30 shadow-xl"
-                                        >
-                                            <span class="text-2xl md:text-4xl font-bold bg-gradient-to-br from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent"
-                                                >AI</span
-                                            >
-                                        </div>
-                                        <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/30">
-                                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                                            <span class="text-xs font-medium">一叶知秋API</span>
-                                        </div>
+                            <div class="relative z-10 md:h-full md:flex md:flex-col md:justify-center items-center text-center">
+                                <!-- Title -->
+                                <div class="mb-6">
+                                    <div class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-orange-600 px-4 py-2 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 border border-orange-200">
+                                        <span class="text-xl animate-bounce">☕</span>
+                                        <span class="font-bold">支持开发者</span>
                                     </div>
+                                </div>
 
-                                    <!-- 主标题 -->
-                                    <h3 class="text-lg md:text-2xl font-bold mb-2 md:mb-3">
-                                        <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent"> 🚀 推荐API服务商 </span>
-                                    </h3>
+                                <!-- Description -->
+                                <div class="mb-6 space-y-2">
+                                    <p class="text-sm text-white font-bold drop-shadow-sm">🤖 AI需要成本，您的支持让项目走得更远</p>
+                                    <span class="inline-block text-xs text-orange-900 bg-white/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30 font-medium">每一份支持都是对开源精神的鼓励</span>
+                                </div>
 
-                                    <!-- 描述文字 -->
-                                    <div class="mb-4 md:mb-6">
-                                        <p class="text-sm md:text-base text-white/90 mb-3 leading-relaxed">
-                                            <!-- <strong class="text-yellow-300">一叶知秋：</strong> -->
-                                            致力于提供可持续且高质量的服务，运用先进的技术架构保障API服务的稳定性与高可用性。
-                                        </p>
+                                <!-- Image -->
+                                <div class="mb-6 relative group">
+                                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-300 to-pink-500 rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                                    <img
+                                        src="/wx.jpg"
+                                        alt="微信收款码"
+                                        class="relative w-40 h-40 md:w-48 md:h-48 rounded-xl shadow-2xl object-cover mx-auto transform transition-transform duration-300 group-hover:scale-105 ring-4 ring-white/30"
+                                    />
+                                </div>
 
-                                        <!-- 特色标签 -->
-                                        <div class="flex flex-wrap gap-2 justify-center mb-4">
-                                            <span class="bg-gradient-to-r from-green-400 to-emerald-500 text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
-                                                ✨ 最新模型
-                                            </span>
-                                            <span class="bg-gradient-to-r from-blue-400 to-cyan-500 text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
-                                                💰 按量付费
-                                            </span>
-                                            <span class="bg-gradient-to-r from-purple-400 to-pink-500 text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
-                                                🛡️ 透明计费
-                                            </span>
+                                <!-- Features List -->
+                                <div class="space-y-2 text-left bg-white/20 p-4 rounded-xl w-full max-w-xs mx-auto backdrop-blur-sm border border-white/30 shadow-inner">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-white/80 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                            <span class="text-orange-600 text-xs font-bold">✓</span>
                                         </div>
+                                        <span class="text-sm text-white font-medium drop-shadow-sm">维持AI服务运行</span>
                                     </div>
-
-                                    <!-- 优势列表 -->
-                                    <div class="hidden md:block mb-6">
-                                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                                            <div class="grid grid-cols-1 gap-3 text-left">
-                                                <div class="flex items-center gap-3">
-                                                    <div class="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0">
-                                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <span class="text-sm text-white/90">支持GPT、Claude、Gemini等主流模型</span>
-                                                </div>
-                                                <div class="flex items-center gap-3">
-                                                    <div class="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
-                                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <span class="text-sm text-white/90">0月费和按用量付费模式</span>
-                                                </div>
-                                                <div class="flex items-center gap-3">
-                                                    <div class="w-6 h-6 bg-purple-400 rounded-full flex items-center justify-center flex-shrink-0">
-                                                        <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                                        </svg>
-                                                    </div>
-                                                    <span class="text-sm text-white/90">最新、最全面的AI模型和API</span>
-                                                </div>
-                                            </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-white/80 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                            <span class="text-orange-600 text-xs font-bold">✓</span>
                                         </div>
+                                        <span class="text-sm text-white font-medium drop-shadow-sm">持续功能更新</span>
                                     </div>
-
-                                    <!-- CTA按钮 -->
-                                    <a
-                                        href="https://88996.cloud/register?aff=Vswe"
-                                        target="_blank"
-                                        class="group inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-gray-900 px-6 py-3 md:px-8 md:py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
-                                    >
-                                        <span class="text-sm md:text-base">🎯 立即体验</span>
-                                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                                        </svg>
-                                    </a>
-
-                                    <!-- 优惠提示 -->
-                                    <div class="mt-3 md:mt-4">
-                                        <div class="inline-flex items-center gap-2 bg-red-500/20 backdrop-blur-sm px-3 py-1 rounded-full border border-red-400/30">
-                                            <span class="text-xs text-red-200 animate-pulse">🔥</span>
-                                            <span class="text-xs text-red-200 font-medium">新用户专享优惠</span>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-5 h-5 rounded-full bg-white/80 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                            <span class="text-orange-600 text-xs font-bold">✓</span>
                                         </div>
+                                        <span class="text-sm text-white font-medium drop-shadow-sm">开源项目维护</span>
                                     </div>
                                 </div>
                             </div>
