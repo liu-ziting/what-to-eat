@@ -43,7 +43,9 @@
                             <div class="relative z-10 md:h-full md:flex md:flex-col md:justify-center items-center text-center">
                                 <!-- Title -->
                                 <div class="mb-6">
-                                    <div class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-orange-600 px-4 py-2 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 border border-orange-200">
+                                    <div
+                                        class="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-orange-600 px-4 py-2 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 border border-orange-200"
+                                    >
                                         <span class="text-xl animate-bounce">☕</span>
                                         <span class="font-bold">支持开发者</span>
                                     </div>
@@ -52,12 +54,16 @@
                                 <!-- Description -->
                                 <div class="mb-6 space-y-2">
                                     <p class="text-sm text-white font-bold drop-shadow-sm">🤖 AI需要成本，您的支持让项目走得更远</p>
-                                    <span class="inline-block text-xs text-orange-900 bg-white/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30 font-medium">每一份支持都是对开源精神的鼓励</span>
+                                    <span class="inline-block text-xs text-orange-900 bg-white/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30 font-medium"
+                                        >每一份支持都是对开源精神的鼓励</span
+                                    >
                                 </div>
 
                                 <!-- Image -->
                                 <div class="mb-6 relative group">
-                                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-300 to-pink-500 rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                                    <div
+                                        class="absolute -inset-1 bg-gradient-to-r from-yellow-300 to-pink-500 rounded-xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"
+                                    ></div>
                                     <img
                                         src="/wx.jpg"
                                         alt="微信收款码"
@@ -84,6 +90,25 @@
                                             <span class="text-orange-600 text-xs font-bold">✓</span>
                                         </div>
                                         <span class="text-sm text-white font-medium drop-shadow-sm">开源项目维护</span>
+                                    </div>
+                                </div>
+
+                                <!-- AI Projects Link -->
+                                <div class="mt-4 bg-white/20 p-3 rounded-xl w-full max-w-xs mx-auto backdrop-blur-sm border border-white/30">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                                            <span class="text-white text-xs font-bold">AI</span>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <p class="text-xs text-white/90 font-medium mb-1">更多 AI 开发项目</p>
+                                            <a
+                                                href="https://vibecoding.lz-t.top/"
+                                                target="_blank"
+                                                class="text-xs text-white hover:text-yellow-200 underline transition-colors break-all"
+                                            >
+                                                vibecoding.lz-t.top
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

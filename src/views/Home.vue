@@ -36,13 +36,42 @@
                         </div>
 
                         <!-- 输入框 -->
-                        <div class="relative">
+                        <div class="flex gap-2">
                             <input
                                 v-model="currentIngredient"
                                 @keyup.enter="addIngredient"
                                 placeholder="输入食材名称，按回车添加..."
-                                class="w-full p-3 md:p-4 border-2 border-[#0A0910] rounded-lg text-sm md:text-lg font-medium focus:outline-none focus:ring-2 focus:ring-pink-400"
+                                class="flex-1 p-3 md:p-4 border-2 border-[#0A0910] rounded-lg text-sm md:text-lg font-medium focus:outline-none focus:ring-2 focus:ring-pink-400"
                             />
+                            <div class="relative group">
+                                <button
+                                    @click="triggerImageUpload"
+                                    :disabled="isRecognizing"
+                                    class="relative h-full px-3 bg-white hover:bg-gray-50 disabled:bg-gray-100 rounded-lg border-2 border-[#0A0910] transition-all duration-200 disabled:cursor-not-allowed flex items-center justify-center min-w-[3rem]"
+                                >
+                                    <!-- 正常状态 -->
+                                    <span v-if="!isRecognizing" class="text-2xl" style="margin-top: -8px">📷</span>
+
+                                    <!-- 加载状态 -->
+                                    <div v-else class="relative flex items-center justify-center">
+                                        <div class="absolute w-5 h-5 border-2 border-gray-300 rounded-full"></div>
+                                        <div class="absolute w-5 h-5 border-2 border-pink-500 border-t-transparent rounded-full animate-spin"></div>
+                                    </div>
+                                </button>
+
+                                <!-- 提示文字 -->
+                                <div
+                                    class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap"
+                                >
+                                    <div class="bg-gray-900 text-white text-xs px-3 py-2 rounded-lg shadow-xl">
+                                        拍照识别
+                                        <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-1">
+                                            <div class="w-2 h-2 bg-gray-900 transform rotate-45"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input ref="imageInput" type="file" accept="image/*" @change="handleImageUpload" class="hidden" />
                         </div>
 
                         <!-- 快速选择食材 -->
@@ -728,6 +757,155 @@ const removeIngredient = (ingredient: string) => {
 const quickAddIngredient = (ingredient: string) => {
     if (!ingredients.value.includes(ingredient) && ingredients.value.length < 10) {
         ingredients.value.push(ingredient)
+    }
+}
+
+// 图片识别相关
+const imageInput = ref<HTMLInputElement | null>(null)
+const isRecognizing = ref(false)
+
+// 触发图片上传
+const triggerImageUpload = () => {
+    imageInput.value?.click()
+}
+
+// 处理图片上传和识别
+const handleImageUpload = async (event: Event) => {
+    const target = event.target as HTMLInputElement
+    const file = target.files?.[0]
+
+    if (!file) return
+
+    isRecognizing.value = true
+
+    try {
+        // 将图片转换为 base64
+        const base64Data = await fileToBase64(file)
+
+        // 调用 AI 识别
+        const recognizedIngredients = await recognizeIngredientsFromImage(base64Data)
+
+        // 将识别到的食材添加到列表
+        if (recognizedIngredients && recognizedIngredients.length > 0) {
+            recognizedIngredients.forEach(ingredient => {
+                if (!ingredients.value.includes(ingredient) && ingredients.value.length < 10) {
+                    ingredients.value.push(ingredient)
+                }
+            })
+
+            // 显示成功提示
+            alert(`成功识别到 ${recognizedIngredients.length} 种食材：${recognizedIngredients.join('、')}`)
+        } else {
+            alert('未能识别到食材，请尝试拍摄更清晰的照片')
+        }
+    } catch (error) {
+        console.error('图片识别失败:', error)
+        alert('图片识别失败，请重试')
+    } finally {
+        isRecognizing.value = false
+        // 清空 input，允许重复上传同一文件
+        target.value = ''
+    }
+}
+
+// 将文件转换为 base64
+const fileToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => {
+            const base64 = reader.result as string
+            // 移除 data:image/xxx;base64, 前缀
+            const base64Data = base64.split(',')[1]
+            resolve(base64Data)
+        }
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+    })
+}
+
+// 调用 AI 识别图片中的食材
+const recognizeIngredientsFromImage = async (base64Data: string): Promise<string[]> => {
+    const apiKey = import.meta.env.VITE_IMAGE_GENERATION_API_KEY
+
+    const systemPrompt = `你是一个专业的冰箱食材识别系统。请严格遵循以下规则处理图片：
+
+识别规则：
+1. 仅识别明确可见、可辨认的食材
+2. 名称使用常见中文名称（如：西兰花，非“青花菜”）
+
+输出规范：
+- 格式：纯文本，食材名称用逗号分隔
+- 数量：最多20种，按视觉显著度排序
+- 空结果：若无食材则返回空字符串
+- 无任何前缀/后缀说明
+
+优先级排序：
+1. 完整可见的独立食材
+2. 占据画面主要区域的食材
+3. 颜色/形状辨识度高的食材
+
+示例：
+输入：冰箱内景照片
+输出：西红柿,鸡蛋,青椒,酸奶,牛肉
+
+特殊处理：
+- 部分可见食材：标注为“未知蔬菜/肉类”等
+- 包装食品：识别可见部分（如“牛奶盒”识别为“牛奶”）
+- 调味品/饮品：仅当为主要物品时识别`
+
+    const userPrompt = '请识别图片中的所有食材，只返回食材名称，用逗号分隔'
+
+    try {
+        const response = await fetch('https://open.bigmodel.cn/api/paas/v4/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: 'GLM-4.1V-Thinking-Flash',
+                messages: [
+                    {
+                        role: 'system',
+                        content: systemPrompt
+                    },
+                    {
+                        role: 'user',
+                        content: [
+                            {
+                                type: 'image_url',
+                                image_url: {
+                                    url: `data:image/jpeg;base64,${base64Data}`
+                                }
+                            },
+                            {
+                                type: 'text',
+                                text: userPrompt
+                            }
+                        ]
+                    }
+                ]
+            })
+        })
+
+        if (!response.ok) {
+            throw new Error(`API 请求失败: ${response.status}`)
+        }
+
+        const data = await response.json()
+        const content = data.choices?.[0]?.message?.content || ''
+
+        // 解析返回的食材列表
+        const ingredientsList = content
+            .split(/[,，、]/)
+            .map((item: string) => item.trim())
+            .filter((item: string) => item.length > 0 && item.length < 10) // 过滤掉空字符串和过长的文本
+            .slice(0, 10) // 最多10个
+
+        return ingredientsList
+    } catch (error) {
+        console.error('AI 识别错误:', error)
+        throw error
     }
 }
 

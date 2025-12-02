@@ -155,6 +155,21 @@
                                             <p class="text-gray-600 text-sm">Kiro 编辑器 - AI驱动的全流程开发</p>
                                         </div>
                                     </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                                            <span class="text-white text-sm font-bold">AI</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-sm font-medium text-gray-700">更多 AI 开发项目</span>
+                                            <a
+                                                href="https://vibecoding.lz-t.top/"
+                                                target="_blank"
+                                                class="block text-blue-600 hover:text-blue-700 underline text-sm transition-colors"
+                                            >
+                                                vibecoding.lz-t.top
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div>
@@ -340,7 +355,7 @@
             </div>
 
             <!-- 友情链接 -->
-            <div class="relative">
+            <div class="relative" v-if="false">
                 <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-t-lg border-2 border-[#0A0910] border-b-0 inline-block mb-0">
                     <span class="font-bold text-lg">🔗 其他项目</span>
                 </div>
