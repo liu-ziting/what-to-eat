@@ -10,10 +10,16 @@
             <div class="p-6">
                 <div class="space-y-3 text-gray-700 mb-6">
                     <p class="font-medium text-base">尊敬的用户：</p>
-                    <p class="leading-relaxed">暂不提供免费 API Key，测试服务已结束。</p>
-                    <p class="leading-relaxed">请在<span class="font-semibold text-orange-600">设置</span>中自行填写<span class="font-semibold">菜谱生成模型</span>配置。</p>
-                    <p class="leading-relaxed text-green-600 font-medium">✨ 图片生成模型配置免费提供</p>
-                    <p class="leading-relaxed text-blue-600 font-medium">💝 投喂作者，让服务器吃得更饱~</p>
+                    <p class="leading-relaxed">
+                        目前提供的是<span class="font-semibold text-purple-600">智谱清言</span
+                        >免费文本生成模型（glm-4v-flash）和图片生成模型（cogview-3-flash），菜谱生成效果并不理想。
+                    </p>
+                    <p class="leading-relaxed">
+                        建议在<span class="font-semibold text-orange-600">设置</span>中配置更优质的模型，如：<span class="font-semibold text-blue-600">DeepSeek</span>、<span
+                            class="font-semibold text-blue-600"
+                            >豆包</span
+                        >等，或自行部署模型服务，以获得更好的使用体验。
+                    </p>
                 </div>
                 <div class="flex gap-3">
                     <button
