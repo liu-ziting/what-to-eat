@@ -9,16 +9,25 @@
             </div>
             <div class="p-6">
                 <div class="space-y-3 text-gray-700 mb-6">
-                    <p class="font-medium text-base">尊敬的用户：</p>
+                    <p class="font-medium text-base">感谢使用本开源项目 🤖</p>
+                    <p class="leading-relaxed">当前使用的是<span class="font-semibold text-purple-600">智谱清言</span>免费模型（glm-4v-flash / cogview-3-flash），生成效果有限。</p>
                     <p class="leading-relaxed">
-                        目前提供的是<span class="font-semibold text-purple-600">智谱清言</span
-                        >免费文本生成模型（glm-4v-flash）和图片生成模型（cogview-3-flash），菜谱生成效果并不理想。
-                    </p>
-                    <p class="leading-relaxed">
-                        建议在<span class="font-semibold text-orange-600">设置</span>中配置更优质的模型，如：<span class="font-semibold text-blue-600">DeepSeek</span>、<span
+                        💡 <span class="font-semibold">推荐配置更强大的模型：</span><br />
+                        前往<span class="font-semibold text-orange-600">设置</span>页面，配置 <span class="font-semibold text-blue-600">DeepSeek</span>、<span
                             class="font-semibold text-blue-600"
                             >豆包</span
-                        >等，或自行部署模型服务，以获得更好的使用体验。
+                        >
+                        等性价比高的模型，或使用自部署服务，体验更佳。
+                    </p>
+                    <p class="text-sm leading-relaxed pt-2 border-t border-gray-200">
+                        <span class="text-gray-600">开源地址，欢迎Star⭐：</span>
+                        <a href="https://github.com/liu-ziting/what-to-eat" target="_blank" class="text-blue-600 hover:text-blue-700 underline">
+                            github.com/liu-ziting/what-to-eat
+                        </a>
+                    </p>
+                    <p class="text-sm leading-relaxed text-gray-600">
+                        更多AI开源项目，请访问：
+                        <a href="https://vibecoding.lz-t.top/" target="_blank" class="text-blue-600 hover:text-blue-700 underline break-all"> vibecoding.lz-t.top </a>
                     </p>
                 </div>
                 <div class="flex gap-3">
@@ -26,13 +35,13 @@
                         @click="handleClose(false)"
                         class="flex-1 px-4 py-3 bg-gray-500 hover:bg-gray-600 text-white rounded-lg font-medium border-2 border-[#0A0910] transition-all duration-200 shadow-md hover:shadow-lg"
                     >
-                        我知道了
+                        知道了
                     </button>
                     <button
                         @click="handleClose(true)"
                         class="flex-1 px-4 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white rounded-lg font-medium border-2 border-[#0A0910] transition-all duration-200 shadow-md hover:shadow-lg"
                     >
-                        今日不再提醒
+                        不再提醒
                     </button>
                 </div>
             </div>
