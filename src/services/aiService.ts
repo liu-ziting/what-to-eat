@@ -561,13 +561,13 @@ export const getWinePairing = async (recipe: Recipe): Promise<WinePairing> => {
 菜系：${recipe.cuisine}
 食材：${recipe.ingredients.join('、')}
 
-请推荐接地气的饮品，包括但不限于：
+请推荐一个最适合的接地气饮品，包括但不限于：
 - 常见饮料：可乐、雪碧、橙汁、柠檬汁、苏打水、果汁等
 - 茶饮：绿茶、红茶、乌龙茶、花茶、奶茶等
 - 酒类：红酒、白酒、啤酒、清酒等（适合的话）
 - 其他：豆浆、牛奶、酸奶、气泡水等
 
-请按照以下JSON格式返回饮品搭配建议：
+请按照以下JSON格式返回一个最佳饮品搭配建议：
 {
   "name": "推荐饮品名称",
   "type": "soft_drink/tea/juice/alcoholic/dairy/other",
@@ -609,6 +609,11 @@ export const getWinePairing = async (recipe: Recipe): Promise<WinePairing> => {
         }
 
         const wineData = JSON.parse(cleanResponse)
+        // 如果返回的是数组，取第一个元素
+        if (Array.isArray(wineData)) {
+            return wineData[0] || generateFallbackWinePairing({ id: 'custom', name: recipe.cuisine } as CuisineType, recipe.ingredients)
+        }
+        // 如果返回的是单个对象，直接返回
         return wineData
     } catch (error) {
         console.error('获取酒水搭配失败:', error)
