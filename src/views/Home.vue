@@ -438,6 +438,7 @@
                                             </div>
                                             <h4 class="text-lg font-bold text-gray-800 mb-2">大师表示很为难</h4>
                                             <p class="text-gray-600 text-sm mb-4">{{ cuisineInfo.name }}看了看你的食材，挠了挠头说："这个组合我还没学会呢！"</p>
+                                            <p class="text-gray-600 text-sm mb-4">（目前免费模型效果有限，请自行更换模型服务，或重试！）</p>
                                         </div>
 
                                         <!-- 建议区域 -->
