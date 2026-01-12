@@ -54,21 +54,31 @@ export const generateRecipe = async (ingredients: string[], cuisine: CuisineType
 
         prompt += `
 
-请按照以下JSON格式返回菜谱，不包含营养分析和酒水搭配：
+请生成一份详细实用的菜谱，要求：
+1. 食材清单要包含具体用量（如：猪肉300g、生抽2勺、盐1茶匙）
+2. 制作步骤要详细具体，包含：
+   - 具体的操作方法（如何切、如何炒、如何调味）
+   - 准确的时间控制（预热时间、炒制时间、焖煮时间等）
+   - 火候掌握（大火爆炒、中小火慢炖等）
+   - 关键判断标准（颜色变化、香味散发、食材状态等）
+3. 烹饪技巧要实用，包含关键要点和常见问题的避免方法
+4. 每个步骤都要让新手能够理解和操作
+
+请按照以下JSON格式返回菜谱：
 {
   "name": "菜品名称",
-  "ingredients": ["食材1", "食材2"],
+  "ingredients": ["主料1 300g", "调料1 2勺", "配菜1 100g"],
   "steps": [
     {
       "step": 1,
-      "description": "步骤描述",
+      "description": "详细的操作步骤，包含具体方法、判断标准和注意事项",
       "time": 5,
-      "temperature": "中火"
+      "temperature": "中火/大火/小火"
     }
   ],
   "cookingTime": 30,
-  "difficulty": "medium",
-  "tips": ["技巧1", "技巧2"]
+  "difficulty": "easy/medium/hard",
+  "tips": ["实用技巧1：具体的操作要点", "注意事项2：避免常见错误的方法"]
 }`
 
         // 调用AI接口
@@ -77,7 +87,8 @@ export const generateRecipe = async (ingredients: string[], cuisine: CuisineType
             messages: [
                 {
                     role: 'system',
-                    content: '你是一位专业的厨师，请根据用户提供的食材和菜系要求，生成详细的菜谱。请严格按照JSON格式返回，不要包含任何其他文字。'
+                    content:
+                        '你是一位经验丰富的专业厨师，擅长制作各种菜系的美食。请根据用户提供的食材和菜系要求，生成详细实用的菜谱。你的菜谱要让新手也能成功制作，包含具体的操作方法、时间控制和关键技巧。请严格按照JSON格式返回，不要包含任何其他文字。'
                 },
                 {
                     role: 'user',
@@ -85,6 +96,7 @@ export const generateRecipe = async (ingredients: string[], cuisine: CuisineType
                 }
             ],
             temperature: apiConfig.temperature,
+            max_tokens: 3000,
             stream: false
         })
 
@@ -288,21 +300,31 @@ export const generateDishRecipe = async (dishName: string, dishDescription: stri
 菜品描述：${dishDescription}
 菜品分类：${category}
 
+请生成一份详细实用的菜谱，要求：
+1. 食材清单要包含具体用量和规格
+2. 制作步骤要详细具体，包含：
+   - 食材预处理方法（清洗、切配、腌制等）
+   - 具体的烹饪操作（炒制手法、调味时机、火候控制）
+   - 关键判断标准（颜色、香味、质地变化）
+   - 每个步骤的预计时间
+3. 烹饪技巧要实用，包含成功要点和失败避免
+4. 适合家庭厨房操作，工具和材料容易获得
+
 请按照以下JSON格式返回菜谱：
 {
   "name": "菜品名称",
-  "ingredients": ["食材1", "食材2"],
+  "ingredients": ["主料1 具体用量", "调料1 具体用量"],
   "steps": [
     {
       "step": 1,
-      "description": "步骤描述",
+      "description": "详细的操作步骤，包含具体方法、时间节点和判断标准",
       "time": 5,
-      "temperature": "中火"
+      "temperature": "具体火候描述"
     }
   ],
   "cookingTime": 30,
   "difficulty": "easy/medium/hard",
-  "tips": ["技巧1", "技巧2"]
+  "tips": ["实用技巧：具体操作要点", "注意事项：避免常见问题"]
 }`
 
         const aiClient = createAiClient()
@@ -313,7 +335,8 @@ export const generateDishRecipe = async (dishName: string, dishDescription: stri
             messages: [
                 {
                     role: 'system',
-                    content: '你是一位专业的厨师，请根据菜品信息生成详细的制作菜谱。请严格按照JSON格式返回，不要包含任何其他文字。'
+                    content:
+                        '你是一位经验丰富的专业厨师，精通各种菜品的制作工艺。请根据菜品信息生成详细实用的制作菜谱，让家庭厨师也能轻松掌握。你的菜谱要包含具体的操作细节、时间控制和关键技巧。请严格按照JSON格式返回，不要包含任何其他文字。'
                 },
                 {
                     role: 'user',
@@ -359,27 +382,38 @@ export const generateDishRecipe = async (dishName: string, dishDescription: stri
 // 使用自定义提示词生成菜谱
 export const generateCustomRecipe = async (ingredients: string[], customPrompt: string): Promise<Recipe> => {
     try {
-        const prompt = `你是一位专业的厨师，请根据用户提供的食材和特殊要求，生成详细的菜谱。请严格按照JSON格式返回，不要包含任何其他文字。
+        const prompt = `你是一位经验丰富的专业厨师，请根据用户提供的食材和特殊要求，生成详细实用的菜谱。
 
 用户提供的食材：${ingredients.join('、')}
 
 用户的特殊要求：${customPrompt}
 
-请按照以下JSON格式返回菜谱，不包含营养分析和酒水搭配：
+请生成一份详细的菜谱，要求：
+1. 充分利用用户提供的食材，合理搭配
+2. 食材清单包含具体用量（如：鸡蛋2个、盐1茶匙、油2勺）
+3. 制作步骤要详细具体：
+   - 食材预处理（清洗、切配、腌制等具体方法）
+   - 烹饪过程（炒制手法、调味时机、火候变化）
+   - 关键判断点（颜色变化、香味散发、质地状态）
+   - 每步骤的准确时间控制
+4. 烹饪技巧要实用，包含成功秘诀和常见错误避免
+5. 满足用户的特殊要求，如口味偏好、营养需求等
+
+请按照以下JSON格式返回菜谱：
 {
   "name": "菜品名称",
-  "ingredients": ["食材1", "食材2"],
+  "ingredients": ["主料1 具体用量", "调料1 具体用量"],
   "steps": [
     {
       "step": 1,
-      "description": "步骤描述",
+      "description": "详细的操作步骤，包含具体方法、判断标准和注意要点",
       "time": 5,
-      "temperature": "中火"
+      "temperature": "具体火候描述"
     }
   ],
   "cookingTime": 30,
-  "difficulty": "medium",
-  "tips": ["技巧1", "技巧2"]
+  "difficulty": "easy/medium/hard",
+  "tips": ["实用技巧：具体操作要点", "注意事项：避免失败的关键"]
 }`
 
         const aiClient = createAiClient()
@@ -390,7 +424,7 @@ export const generateCustomRecipe = async (ingredients: string[], customPrompt: 
             messages: [
                 {
                     role: 'system',
-                    content: '你是一位专业的厨师，请根据用户提供的食材和特殊要求，生成详细的菜谱。请严格按照JSON格式返回，不要包含任何其他文字。'
+                    content: '你是一位经验丰富的专业厨师，擅长根据用户需求定制菜谱。你的菜谱详细实用，让新手也能成功制作美味佳肴。请严格按照JSON格式返回，不要包含任何其他文字。'
                 },
                 {
                     role: 'user',
@@ -897,26 +931,31 @@ export const generateDishRecipeByName = async (dishName: string): Promise<Recipe
         const prompt = `请为"${dishName}"这道菜生成详细的制作教程。
 
 要求：
-1. 提供完整的食材清单（包括主料和调料）
-2. 详细的制作步骤，每个步骤要包含具体的时间和火候
-3. 实用的烹饪技巧和注意事项
-4. 如果是地方菜，请说明其特色和来源
+1. 提供完整的食材清单，包含具体用量和规格（如：五花肉500g、生抽3勺、料酒2勺）
+2. 详细的制作步骤，每个步骤要包含：
+   - 具体的操作方法和技巧
+   - 准确的时间控制和火候掌握
+   - 关键的判断标准（颜色、香味、质地变化）
+   - 重要的注意事项和技巧要点
+3. 实用的烹饪技巧和专业建议
+4. 如果是地方菜，请说明其特色和传统做法
+5. 让家庭厨师也能轻松掌握的详细指导
 
 请按照以下JSON格式返回菜谱：
 {
   "name": "菜品名称",
-  "ingredients": ["主料1 200g", "调料1 适量", "调料2 1勺"],
+  "ingredients": ["主料1 具体用量", "调料1 具体用量", "配菜1 具体用量"],
   "steps": [
     {
       "step": 1,
-      "description": "详细的步骤描述，包含具体操作方法",
+      "description": "详细的步骤描述，包含具体操作方法、判断标准和关键技巧",
       "time": 5,
-      "temperature": "中火/大火/小火"
+      "temperature": "具体火候描述（如：中火加热至冒烟）"
     }
   ],
   "cookingTime": 30,
   "difficulty": "easy/medium/hard",
-  "tips": ["实用技巧1", "注意事项2", "口感调节3"]
+  "tips": ["实用技巧1：具体的操作要点和成功秘诀", "注意事项2：避免常见错误的关键方法"]
 }`
 
         const aiClient = createAiClient()
@@ -928,7 +967,7 @@ export const generateDishRecipeByName = async (dishName: string): Promise<Recipe
                 {
                     role: 'system',
                     content:
-                        '你是一位经验丰富的中华料理大师，精通各种菜系的制作方法。请根据用户提供的菜名，生成详细、实用的制作教程。请严格按照JSON格式返回，不要包含任何其他文字。请务必用中文回答。'
+                        '你是一位经验丰富的中华料理大师，精通各种菜系的制作方法和传统工艺。请根据用户提供的菜名，生成详细、实用、专业的制作教程，让家庭厨师也能做出正宗美味的菜品。请严格按照JSON格式返回，不要包含任何其他文字。请务必用中文回答。'
                 },
                 {
                     role: 'user',
